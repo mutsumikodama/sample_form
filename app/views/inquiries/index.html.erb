@@ -1,11 +1,11 @@
-<h1>Listing inquiries</h1>
+<h1>問い合わせ一覧</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Inquiry</th>
+      <th>名前</th>
+      <th>email</th>
+      <th>お問い合わせ内容</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,9 +18,9 @@
         <td><%= inquiry.name %></td>
         <td><%= inquiry.email %></td>
         <td><%= inquiry.inquiry %></td>
-        <td><%= link_to 'Show', inquiry %></td>
-        <td><%= link_to 'Edit', edit_inquiry_path(inquiry) %></td>
-        <td><%= link_to 'Destroy', inquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '表示', inquiry %></td>
+        <td><%= link_to '編集', edit_inquiry_path(inquiry) %></td>
+        <td><%= link_to '削除', inquiry, method: :delete, data: { confirm: '削除してよろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Inquiry', new_inquiry_path %>
+<%= link_to '新規お問い合わせ', new_inquiry_path %>

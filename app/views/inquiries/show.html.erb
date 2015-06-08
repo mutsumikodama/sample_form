@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名前:</strong>
   <%= @inquiry.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>email:</strong>
   <%= @inquiry.email %>
 </p>
 
 <p>
-  <strong>Inquiry:</strong>
+  <strong>お問い合わせ内容:</strong>
   <%= @inquiry.inquiry %>
 </p>
 
-<%= link_to 'Edit', edit_inquiry_path(@inquiry) %> |
-<%= link_to 'Back', inquiries_path %>
+<%= link_to '編集', edit_inquiry_path(@inquiry) %> |
+<%= link_to '戻る', inquiries_path %>
