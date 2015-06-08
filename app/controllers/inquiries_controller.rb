@@ -28,7 +28,7 @@ class InquiriesController < ApplicationController
 
     respond_to do |format|
       if @inquiry.save
-        format.html { redirect_to @inquiry, notice: 'Inquiry was successfully created.' }
+        format.html { redirect_to @inquiry, notice: 'お問い合わせが送信されました。' }
         format.json { render action: 'show', status: :created, location: @inquiry }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class InquiriesController < ApplicationController
   def update
     respond_to do |format|
       if @inquiry.update(inquiry_params)
-        format.html { redirect_to @inquiry, notice: 'Inquiry was successfully updated.' }
+        format.html { redirect_to @inquiry, notice: 'お問い合わせが更新されました。' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -59,6 +59,11 @@ class InquiriesController < ApplicationController
       format.html { redirect_to inquiries_url }
       format.json { head :no_content }
     end
+  end
+
+  def confirm
+    @inquiry = Inquiry.new(inquiry_params)
+    render :new if @inquiry.invalid?
   end
 
   private

@@ -1,0 +1,21 @@
+<h1>お問い合わせ内容確認</h1>
+<%= form_for @inquiry do |f| %>
+    <div class="field">
+      名前: <%= @inquiry.name %>
+      <%= f.hidden_field :name %>
+    </div>
+    <div class="field">
+      email: <%= @inquiry.email %>
+      <%= f.hidden_field :email %>
+    </div>
+    <div class="field">
+      お問い合わせ内容: <%= @inquiry.inquiry %>
+      <%= f.hidden_field :inquiry %>
+    </div>
+    <div class="actions">
+      <%= f.submit '戻る', name: 'back' %>
+    </div>
+    <div class="actions">
+      <%= f.submit '送信' %>
+    </div>
+<% end %>
