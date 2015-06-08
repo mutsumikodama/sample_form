@@ -61,6 +61,11 @@ class InquiriesController < ApplicationController
     end
   end
 
+  def confirm
+    @inquiry = Inquiry.new(inquiry_params)
+    render :new if @inquiry.invalid?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inquiry
