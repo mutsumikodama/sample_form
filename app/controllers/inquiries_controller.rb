@@ -1,53 +1,15 @@
 class InquiriesController < ApplicationController
-  before_action :set_inquiry, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  before_action :signed_in_user
 
-  # GET /inquiries
-  # GET /inquiries.json
-  def index
-    @inquiries = Inquiry.all
-  end
-
-  # GET /inquiries/1
-  # GET /inquiries/1.json
-  def show
-  end
-
-  # GET /inquiries/new
-  def new
-    @inquiry = Inquiry.new
-  end
-
-  # GET /inquiries/1/edit
-  def edit
-  end
-
-  # POST /inquiries
-  # POST /inquiries.json
   def create
-    @inquiry = Inquiry.new(inquiry_params)
+    @inquiry = current_user.inquiry.build(inquiry_params)
 
-    respond_to do |format|
-      if @inquiry.save
-        format.html { redirect_to @inquiry, notice: 'お問い合わせが送信されました。' }
-        format.json { render action: 'show', status: :created, location: @inquiry }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @inquiry.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /inquiries/1
-  # PATCH/PUT /inquiries/1.json
-  def update
-    respond_to do |format|
-      if @inquiry.update(inquiry_params)
-        format.html { redirect_to @inquiry, notice: 'お問い合わせが更新されました。' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @inquiry.errors, status: :unprocessable_entity }
-      end
+    if @inquiry.save
+      flash[:success] = "inquiry created!"
+      redirect_to root_url
+    else
+      render 'static_pages/home'
     end
   end
 

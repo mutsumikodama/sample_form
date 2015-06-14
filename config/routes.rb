@@ -3,6 +3,7 @@ SampleForm::Application.routes.draw do
                      :registrations => "registrations"
                    }
   resources :users, only: [:show, :index]
+  resources :inquiries, only: [:create, :destroy]
 
   get "home/index"
   get "home/show"
