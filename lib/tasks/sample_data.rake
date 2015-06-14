@@ -10,5 +10,11 @@ namespace :db do
       User.create!(email: email,
                    password: password)
     end
+
+    users = User.all(limit: 6)
+    50.times do
+      inquiry = Faker::Lorem.sentence(5)
+      users.each { |user| user.inquiries.create!(inquiry: inquiry) }
+    end
   end
 end

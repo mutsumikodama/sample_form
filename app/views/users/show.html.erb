@@ -1,0 +1,19 @@
+<% provide(:title, @user.email) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @user.email %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @user.inquiries.any? %>
+        <h3>Inquiries (<%= @user.inquiries.count %>)</h3>
+        <ol class="inruiries">
+          <%= render @inquiries %>
+        </ol>
+        <%= will_paginate @inquiries, renderer: BootstrapPagination::Rails %>
+    <% end %>
+  </div>
+</div>
