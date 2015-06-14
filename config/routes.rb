@@ -1,4 +1,5 @@
 SampleForm::Application.routes.draw do
+  root to: "home#index"
   root  'inquiries#home'
   resources :inquiries do
     collection do
