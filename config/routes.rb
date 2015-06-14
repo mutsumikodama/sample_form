@@ -3,10 +3,12 @@ SampleForm::Application.routes.draw do
   get "home/index"
   get "home/show"
 
-  # ログイン画面をホームにする
-  devise_scope :user do
-    root :to => "devise/sessions#new"
-  end
+  root to: "home#index"
+
+#  # ログイン画面をホームにする
+#  devise_scope :user do
+#    root :to => "devise/sessions#new"
+#  end
 
 #  root  'inquiries#home'
 #  resources :inquiries do
